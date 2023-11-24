@@ -1,0 +1,69 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/animations" as anime;
+.main {
+  margin-left: 15%;
+  @include mix.laptop-l-styles {
+    margin-left: 20%;
+  }
+  @include mix.laptop-m-styles {
+    margin-left: 25%;
+  }
+  @include mix.tablet-styles {
+    margin-left: 0;
+    margin-top: 71px;
+  }
+  @include mix.mobile-l-styles {
+  }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mix.mobile-l-styles {
+      flex-direction: column;
+    }
+    .image-post {
+      position: relative;
+      flex: 0 1 33.33%;
+      &:hover .post.front-side {
+        transform: rotateY(180deg);
+      }
+      &:hover .post.back-side {
+        transform: rotateY(360deg);
+      }
+
+      @include mix.tablet-styles {
+        flex-basis: 50%;
+      }
+      .post {
+        backface-visibility: hidden;
+        transition: 1s cubic-bezier(0.1, 0.3, 0.65, 1);
+        transform: rotateY(0deg);
+      }
+      .back-side {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateY(180deg);
+        .post-text {
+          @extend %wrap;
+          border-top: 2px solid var.$text-color-secondary;
+          border-bottom: 2px solid var.$text-color-secondary;
+          text-align: center;
+          padding-top: var.$gutter-base;
+          padding-bottom: var.$gutter-base;
+        }
+      }
+      .image-cover {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

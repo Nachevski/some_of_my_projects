@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+footer {
+  width: 15%;
+  position: fixed;
+  bottom: 30px;
+  @include mix.laptop-l-styles {
+    width: 20%;
+  }
+  @include mix.laptop-m-styles {
+    width: 25%;
+  }
+  @include mix.tablet-styles {
+    display: none;
+  }
+  span {
+    @include mix.laptop-l-styles {
+      font-size: var.$font-size-m;
+      a {
+        font-size: var.$font-size-m;
+      }
+    }
+    a {
+      font-weight: var.$font-weight-bold;
+    }
+  }
+}

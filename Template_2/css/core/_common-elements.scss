@@ -1,0 +1,96 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+body {
+  font-family: var.$font-family-base;
+  font-weight: var.$font-weight-normal;
+  line-height: var.$line-height-base;
+  color: var.$text-color-base;
+  background-color: var.$text-color-primary;
+}
+h1 {
+  display: none;
+}
+h2,
+h3 {
+  margin-bottom: math.div(var.$gutter-base, 2);
+  font-weight: var.$font-weight-bold;
+}
+h2 {
+  @include mix.laptop-m-styles {
+    font-size: var.$font-size-l;
+  }
+}
+p {
+  font-size: var.$font-size-l;
+  margin-bottom: 0;
+  @include mix.four-k-styles {
+    font-size: var.$font-size-xl;
+  }
+  @include mix.laptop-l-styles {
+    font-size: var.$font-size-l;
+  }
+  @include mix.laptop-m-styles {
+    font-size: var.$font-size-m;
+  }
+}
+span {
+  display: block;
+  font-size: var.$font-size-l;
+
+  @include mix.tablet-styles {
+    font-size: var.$font-size-m;
+  }
+}
+ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none;
+  color: var.$text-color-base;
+  font-size: var.$font-size-l;
+  @include mix.tablet-styles {
+    font-size: var.$font-size-m;
+  }
+}
+.wrapper {
+  @extend %wrap;
+}
+.inner {
+  @extend %section;
+}
+.default-theme {
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  li,
+  span,
+  a,
+  output {
+    color: var.$text-color-base;
+  }
+  animation: defaultTheme 1s forwards;
+}
+.dark-theme {
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  li,
+  span,
+  a,
+  output,
+  i {
+    color: var.$text-color-primary;
+  }
+  animation: darkTheme 1s forwards;
+}
+.hide-settings {
+  display: none;
+}

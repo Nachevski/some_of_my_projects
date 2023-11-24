@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+@keyframes darkTheme {
+  0% {
+    background-color: var.$text-color-primary;
+  }
+  100% {
+    background-color: var.$text-color-base;
+  }
+}
+@keyframes defaultTheme {
+  0% {
+    background-color: var.$text-color-base;
+  }
+  100% {
+    background-color: var.$text-color-primary;
+  }
+}

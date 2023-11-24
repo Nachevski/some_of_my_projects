@@ -1,0 +1,91 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+
+.features-and-newsletter {
+  background-color: rgb(240, 240, 240);
+  text-align: center;
+  p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    @extend %section;
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper {
+    @extend %wrap;
+  }
+
+  .features-heading {
+    margin-bottom: var.$gutter-base * 2;
+    p {
+      width: 50%;
+      margin-bottom: var.$gutter-base;
+      @include mix.tablet-styles {
+        width: 100%;
+      }
+    }
+  }
+  .services {
+    display: flex;
+    justify-content: space-between;
+    @include mix.tablet-styles {
+      flex-direction: column;
+    }
+    .service {
+      flex-basis: 33.33%;
+      i {
+        font-size: var.$font-size-ml * 2;
+        color: var.$btn-background-color-primary;
+        margin-bottom: var.$gutter-base;
+      }
+      p {
+        width: 90%;
+        margin-bottom: 0;
+        @include mix.tablet-styles {
+          width: 60%;
+        }
+      }
+      @include mix.tablet-styles {
+        margin-bottom: var.$gutter-base * 2;
+      }
+    }
+  }
+  .newsletter-heading {
+    margin-bottom: var.$gutter-base * 2;
+    p {
+      width: 50%;
+      margin-bottom: var.$gutter-base;
+      @include mix.tablet-styles {
+        width: 80%;
+      }
+    }
+  }
+  .subscribe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    @include mix.tablet-styles {
+      flex-direction: column;
+    }
+    input[type="submit"] {
+      border: none;
+      cursor: pointer;
+      width: 200px;
+    }
+    input[type="email"] {
+      padding: calc(var.$gutter-base/3);
+      font-size: var.$font-size-m;
+      width: 500px;
+      outline-color: var.$btn-background-color-primary;
+      @include mix.tablet-styles {
+        width: 70%;
+      }
+      @include mix.mobile-l-styles {
+        width: 90%;
+      }
+    }
+  }
+}
