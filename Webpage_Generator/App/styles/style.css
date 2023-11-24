@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    text-shadow: 0 0 15px #383838;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 46px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+label.exception {
+    margin-top: 20px;
+}
+
+input,
+textarea, select {
+    display: block;
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 3px solid transparent;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+    font-size: 18px;
+    color: red;
+}
+
+.btn {
+    background-color: #6495EDFF;
+    text-decoration: none;
+    display: block;
+    margin: 30px auto 0;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 0 0 15px #6495EDFF;
+    width: 200px;
+    padding: 15px 25px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    box-shadow: 0 0 15px #fff;
+    animation: none;
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    animation: daytimeChange forwards infinite 50s linear;
+
+}
+
+.bg-image {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)), url("../imgs/banner.jpg") center center/cover;
+
+}
+
+.main-header {
+    width: 60%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.infoInputs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 80vh;
+    background-color: rgba(47, 47, 47, 0.5);
+    color: #fff;
+    overflow: hidden;
+    border: 2px solid white;
+    padding: 40px;
+}
+
+.steps {
+    position: absolute;
+    width: 100%;
+    padding: 10px 40px;
+}
+
+.steps.active {
+    visibility: visible;
+    right: 0;
+    transition: all 1s ease;
+}
+
+.steps:not(.active) {
+    visibility: hidden;
+    right: -100%;
+    transition: all 1s ease;
+}
+
+.steps.prev {
+    right: 100%;
+}
+
+.btn-submit {
+    background-color: rgb(0, 167, 0);
+}
+
+.btn-next-step,
+.btn-prev-step,
+.btn-submit {
+    font-size: 16px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.btn-next-step,
+.btn-submit {
+    bottom: 35px;
+    right: 35px;
+}
+
+.btn-next-step:disabled {
+    box-shadow: none !important;
+    background-color: #9e9e9e;
+}
+
+.btn-next-step:disabled:hover {
+    box-shadow: none !important;
+    cursor: auto;
+}
+
+.btn-prev-step {
+    bottom: 35px;
+    right: 250px;
+}
+
+.btn-next-step.disabled,
+.btn-prev-step.disabled,
+.btn-submit.disabled {
+    visibility: hidden;
+}
+
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    margin-right: -40px;
+}
+
+.group1,
+.group2 {
+    flex: 1 1 50%;
+    margin-right: 40px;
+}
+
+.validateError {
+    border: 3px solid red;
+}
+
+.validatePass {
+    border: 3px solid lawngreen;
+}
+
+.statusBar {
+    width: 0;
+    height: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(90deg, rgb(100, 148, 237), rgb(17, 255, 100));
+    transition: width 1s linear;
+}
+
+/*MEDIA*/
+@media (max-width: 1600px) {
+    .main-header {
+        width: 85%;
+    }
+
+    input,
+    textarea, select {
+        padding: 5px 5px;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .infoInputs {
+        width: 95%;
+        height: 85vh;
+        padding: 15px;
+    }
+
+    .validationError {
+        font-size: 22px;
+    }
+
+    .validationError p {
+        margin: 5px;
+    }
+
+    input,
+    textarea, select {
+        font-size: 16px;
+    }
+}
+
+/*EXTRAS*/
+.screenNotSupported {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: red;
+    display: none;
+    text-align: center;
+}
+
+.screenNotSupported.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+

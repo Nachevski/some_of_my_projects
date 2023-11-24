@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Bruno Ace SC", cursive;
+}
+body {
+  margin: 0;
+}
+.background {
+  background: url("../img/wall.jpg") no-repeat right/cover;
+  height: 100vh;
+}
+h1,
+h2 {
+  color: rgb(62, 120, 149);
+  text-align: center;
+  font-style: italic;
+}
+h1 {
+  font-size: 48px;
+  margin-top: 16px;
+}
+.main-header,
+.welcome-screen {
+  position: absolute;
+}
+.main-header {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.welcome-screen {
+  top: 50%;
+  right: 110px;
+  transform: translateY(-50%);
+  padding: 35px;
+  width: 30%;
+}
+.btn {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  padding: 15px 30px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 25px;
+  background-color: rgb(3, 24, 32);
+  border: 3px solid rgb(6, 89, 117);
+  cursor: pointer;
+  margin-top: 25px;
+}
+.btn[type="submit"] {
+  margin-top: 55px;
+}
+.btn:hover {
+  background-color: rgb(4, 60, 79);
+}
+.btn[type="submit"],
+.btn:hover {
+  animation: pulsing 2s linear forwards infinite;
+}
+form > *:not(:last-child) {
+  margin-bottom: 25px;
+}
+input {
+  color: rgb(12, 173, 227);
+  display: block;
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 5px solid transparent;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(12, 173, 227);
+}
+input:hover {
+  outline: 3px solid rgb(7, 92, 120);
+}
+input:focus {
+  outline: 3px solid rgb(12, 173, 227);
+  border-bottom: 2px solid transparent;
+}
+input:-webkit-autofill {
+  transition: background-color 9999s ease-in-out 0s;
+  -webkit-text-fill-color: rgb(12, 173, 227);
+}
+input::placeholder {
+  color: rgb(7, 92, 120);
+}
+.errorValidation,
+.errorValidationLogin {
+  background-color: #3a0000;
+  color: red;
+  padding: 5px 10px 10px;
+  font-size: 18px;
+  border: 2px solid #830000;
+}
+.errorValidation {
+  border-bottom: none;
+  margin: 0 0 -5px 0 !important;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.errorValidationLogin {
+  border-radius: 10px;
+}
+.borderError {
+  border: 3px solid #830000;
+}
+.color-yellow {
+  color: yellow;
+}
+.hide {
+  display: none;
+}
+@media (max-width: 1600px) {
+  .welcome-screen {
+    width: 35%;
+  }
+  input {
+    font-size: 18px;
+  }
+  .btn {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1200px) {
+  .welcome-screen {
+    width: 45%;
+  }
+}
+@media (max-width: 888px) {
+  .welcome-screen {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .welcome-screen {
+    width: 100%;
+    right: 0;
+  }
+}
+@keyframes pulsing {
+  0% {
+    background-color: rgb(3, 24, 32);
+  }
+  50% {
+    background-color: rgb(4, 60, 79);
+  }
+  100% {
+    background-color: rgb(3, 24, 32);
+  }
+}
