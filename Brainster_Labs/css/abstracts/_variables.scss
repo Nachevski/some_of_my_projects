@@ -1,0 +1,29 @@
+@function rem-calc($size) {
+  @return (calc($size/16)) * 1rem;
+}
+
+// Font settings
+$font-family-base: "Ubuntu", sans-serif;
+
+$line-height-base: 1.5;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$font-size-xl: rem-calc(24);
+$font-size-l: rem-calc(18);
+$font-size-m: rem-calc(16);
+$font-size-s: rem-calc(12);
+
+// Size settings
+$gutter-base: rem-calc(30);
+
+// Color settings
+$text-color-base: #000;
+$text-color-primary: #fff;
+
+$background-color-base: #fcd232;
+$background-color-filter: #302f38;
+
+$color-red: #eb3b3b;

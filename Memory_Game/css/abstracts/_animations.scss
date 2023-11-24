@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+@keyframes glow {
+  0% {
+    box-shadow: 1px 1px 25px 10px rgb(66, 80, 207);
+  }
+  10% {
+    box-shadow: 1px 1px 25px 10px rgb(155, 66, 207);
+  }
+  20% {
+    box-shadow: 1px 1px 25px 10px rgb(207, 66, 148);
+  }
+  30% {
+    box-shadow: 1px 1px 25px 10px rgb(207, 66, 66);
+  }
+  40% {
+    box-shadow: 1px 1px 25px 10px rgb(207, 106, 66);
+  }
+  50% {
+    box-shadow: 1px 1px 25px 10px rgb(207, 186, 66);
+  }
+  60% {
+    box-shadow: 1px 1px 25px 10px rgb(146, 207, 66);
+  }
+  70% {
+    box-shadow: 1px 1px 25px 10px rgb(66, 207, 85);
+  }
+  80% {
+    box-shadow: 1px 1px 25px 10px rgb(66, 207, 188);
+  }
+  90% {
+    box-shadow: 1px 1px 25px 10px rgb(66, 144, 207);
+  }
+  100% {
+    box-shadow: 1px 1px 25px 10px rgb(66, 80, 207);
+  }
+}

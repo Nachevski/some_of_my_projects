@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+h1 {
+  margin: 0;
+}
+h2,
+h3,
+p,
+ul {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}

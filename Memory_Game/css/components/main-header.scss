@@ -1,0 +1,10 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.main-header {
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

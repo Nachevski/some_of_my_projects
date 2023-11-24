@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+footer {
+  text-align: center;
+  padding: var.$gutter-base;
+  background-color: var.$background-color-filter;
+  color: var.$text-color-primary;
+  span {
+    font-size: var.$font-size-l;
+    i {
+      color: var.$color-red;
+      font-size: var.$font-size-xl;
+      @extend %default-transition;
+      animation: pulsing 1s forwards infinite;
+    }
+  }
+}

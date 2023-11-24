@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.clients {
+  width: 85%;
+  min-height: calc(100vh - (114.45px + 85px));
+  @include mix.laptop-m {
+    width: 95%;
+  }
+  @include mix.tablet {
+    height: auto;
+  }
+  .table-data {
+    table {
+      font-family: sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      td,
+      th {
+        border: 1px solid #000;
+        font-size: var.$font-size-l;
+      }
+      th {
+        padding: var.$gutter-base;
+        background-color: #c1c1c1;
+        text-align: center;
+        @include mix.laptop-m {
+          padding: 20px;
+          font-size: 16px;
+        }
+      }
+      td {
+        text-align: left;
+        padding: calc(var.$gutter-base/2);
+        @include mix.laptop-m {
+          padding: 10px;
+          font-size: 16px;
+        }
+      }
+
+      tr:nth-child(even) {
+        background-color: #e7e7e7;
+      }
+      tr:nth-child(odd) {
+        background-color: var.$text-color-primary;
+      }
+    }
+  }
+  .card {
+    h4 {
+      font-size: var.$font-size-xl;
+      @include mix.mobile-l {
+        font-size: var.$font-size-m;
+      }
+    }
+    strong {
+      color: #c40041;
+    }
+    @include mix.tablet {
+      flex-basis: 100%;
+    }
+  }
+}
+.hide-data {
+  display: none;
+}

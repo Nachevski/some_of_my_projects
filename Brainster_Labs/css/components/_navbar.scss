@@ -1,0 +1,202 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+.navbar {
+  background-color: var.$background-color-base;
+  padding: calc(var.$gutter-base/3) * 2 (var.$gutter-base * 2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  @extend %text-center;
+  @extend %d-flex;
+  @extend %justify-s-b;
+  @extend %align-center;
+  @include mix.laptop-m {
+    padding-left: calc(var.$gutter-base/2);
+    padding-right: calc(var.$gutter-base/2);
+  }
+  @include mix.tablet {
+    padding-top: calc(var.$gutter-base/4);
+    padding-bottom: calc(var.$gutter-base/4);
+  }
+  .logo {
+    margin-right: var.$gutter-base;
+    .logo-img {
+      width: 60px;
+      @include mix.tablet {
+        width: 40px;
+      }
+    }
+    .logo-caption {
+      @extend %d-block;
+      text-transform: uppercase;
+      @extend %font-bold;
+      font-size: var.$font-size-s;
+    }
+  }
+  .menu {
+    margin: 0;
+    padding: 0;
+    @extend %d-flex;
+    @extend %align-center;
+    &.show-menu {
+      visibility: visible;
+      top: 0;
+      bottom: 0;
+      text-align: left;
+      background-color: var.$background-color-filter;
+      z-index: 9;
+      @extend %default-transition;
+      .menu-list {
+        @extend %flex-direction-column;
+        .link-item {
+          text-align: left !important;
+          color: var.$text-color-primary;
+        }
+      }
+    }
+    @include mix.tablet {
+      visibility: hidden;
+      display: block;
+      position: absolute;
+      top: -100vh;
+      right: 0;
+      left: 0;
+      padding: var.$gutter-base * 3 var.$gutter-base 0;
+      height: 100vh;
+      transition: all 0.5s ease;
+    }
+    .menu-list {
+      @extend %d-flex;
+      & > *:not(:last-child) {
+        margin-right: var.$gutter-base;
+      }
+      & > *:last-child {
+        margin-right: var.$gutter-base * 1.6;
+      }
+      .menu-item {
+        @extend %position-rel;
+        .link-item {
+          font-size: var.$font-size-l;
+          @extend %font-bold;
+          @extend %text-center;
+          padding: calc(var.$gutter-base/2) 0;
+          background: linear-gradient(to right, var.$text-color-base 10%, var.$color-red 20%, var.$color-red 50%, var.$text-color-base 50%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 300% 100%;
+          background-position: 100%;
+          @extend %default-transition;
+          &:hover {
+            background-position: 0 100%;
+            transform: scale(1.02) translateY(-5px);
+          }
+          @include mix.laptop-l {
+            font-size: var.$font-size-m;
+          }
+          @include mix.laptop-m {
+            background: linear-gradient(to bottom, var.$text-color-base 80%, var.$color-red 85%, var.$color-red 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 100% 300%;
+          }
+          @include mix.tablet {
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: currentColor;
+            background-size: 0%;
+            background-position: 0%;
+
+            &:hover {
+              background-position: 0%;
+            }
+          }
+        }
+      }
+    }
+    .form-btn {
+      min-width: 120px;
+      @include mix.tablet {
+        margin-top: calc(var.$gutter-base/2);
+      }
+      .btn {
+        @include mix.laptop-l {
+          padding: calc(var.$gutter-base/3);
+        }
+        @include mix.tablet {
+          padding: calc(var.$gutter-base/2);
+        }
+      }
+    }
+  }
+
+  .hamburger-menu {
+    flex-shrink: 0;
+    @extend %d-none;
+    cursor: pointer;
+    padding: 10px 0 10px 10px;
+    @include mix.tablet {
+      display: block;
+    }
+    .custom-icon {
+      width: 50px;
+      height: 35px;
+      @extend %position-rel;
+      .hm-top,
+      .hm-middle,
+      .hm-bottom {
+        @extend %d-block;
+        height: 6px;
+        background-color: var.$text-color-base;
+        border-radius: 5px;
+        @extend %position-abs;
+      }
+      .hm-top {
+        @extend %w-100;
+        top: 0;
+        transition: top 0.2s linear 0.4s, transform 0.2s linear;
+      }
+      .hm-middle {
+        @extend %w-75;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        transition: width 0.2s linear 0.4s;
+      }
+      .hm-bottom {
+        @extend %w-50;
+        bottom: 0;
+        right: 0;
+        transition: bottom 0.2s linear 0.4s, transform 0.2s linear, width 0.2s linear 0.3s;
+      }
+    }
+    &.open-menu {
+      z-index: 10;
+      .custom-icon {
+        .hm-top,
+        .hm-middle,
+        .hm-bottom {
+          background-color: var.$text-color-primary;
+        }
+        .hm-top {
+          top: calc(50% - 3px);
+          transform: rotate(-45deg);
+          transition: top 0.2s linear, transform 0.2s linear 0.4s;
+        }
+        .hm-middle {
+          width: 0;
+          transition: width 0.2s linear 0.1s;
+        }
+        .hm-bottom {
+          bottom: calc(50% - 3px);
+          transform: rotate(45deg);
+          @extend %w-100;
+          transition: bottom 0.2s linear, transform 0.2s linear 0.4s, width 0.2s linear 0.2s;
+        }
+      }
+    }
+  }
+}

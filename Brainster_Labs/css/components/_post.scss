@@ -1,0 +1,95 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.postMessage {
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(#000, 0.7);
+  @extend %position-abs;
+  @extend %abs-full;
+  z-index: 99999999999;
+  @extend %default-transition;
+
+  &.show-message {
+    visibility: visible;
+    opacity: 1;
+    @extend %default-transition;
+    .form-bg {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      transition: all 0.6s ease 0.3s;
+    }
+  }
+  .form-bg {
+    @extend %w-50;
+    height: 50%;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.6s ease 0.3s;
+    @include mix.laptop-m {
+      width: 70%;
+      height: 40%;
+    }
+    @include mix.tablet {
+      width: 90%;
+    }
+    .form-body {
+      @extend %w-100;
+      @extend %h-100;
+      background-color: #fff;
+      border-radius: 25px;
+      @extend %d-flex;
+      @extend %align-center;
+      @extend %justify-center;
+      background: url("../imgs/Brainster/wallpaper_tablet.png") no-repeat center center/cover;
+      @extend %position-rel;
+      border: 1px solid white;
+      &:before {
+        content: "";
+        @extend %position-abs;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        border-radius: 25px;
+        background: linear-gradient(-135deg, transparent 20%, rgb(199, 162, 0) 45%, rgb(199, 162, 0) 55%, transparent 70%, transparent 100%);
+        background-size: 300%;
+        filter: blur(10px);
+        z-index: -1;
+        animation: glowing 5s linear infinite;
+      }
+      .form-message {
+        @extend %w-100;
+        @extend %h-100;
+        @extend %d-flex;
+        @extend %align-center;
+        @extend %justify-center;
+        @extend %flex-direction-column;
+        border-radius: 25px;
+        background-color: rgba(#000, 0.5);
+        text-align: center;
+        h3 {
+          font-size: var.$font-size-xl * 2.5;
+          color: #fff;
+          width: 90%;
+          @include mix.laptop-l {
+            font-size: 48px;
+          }
+          @include mix.laptop-m {
+            font-size: 36px;
+          }
+          @include mix.tablet {
+            font-size: 30px;
+          }
+        }
+        .btn {
+          width: 30%;
+          @include mix.mobile-l {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}

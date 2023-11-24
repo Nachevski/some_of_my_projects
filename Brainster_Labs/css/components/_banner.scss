@@ -1,0 +1,230 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/animations" as ani;
+
+.banner {
+  padding: 6px 0;
+  @extend %position-rel;
+  &:before {
+    content: "";
+    @extend %position-abs;
+    transform: translateY(-6px);
+    background: linear-gradient(90deg, #ff2584, #4162f4, #9500ff, #fc40ff, #009dff, #13e9e9, #b700ff, #14f299, #ff40f9, #ff1279);
+    background-size: 200%;
+    z-index: -1;
+    @extend %w-100;
+    @extend %h-100;
+    animation: glowing 20s linear infinite;
+  }
+  .banner-container {
+    background-attachment: fixed;
+    height: 65vh;
+    @extend %position-rel;
+    overflow: hidden;
+    @include mix.tablet {
+      height: 45vh;
+    }
+    @include mix.mobile-l {
+      height: 35vh;
+    }
+    .logo-banner {
+      @extend %position-abs;
+      @extend %abs-full;
+      z-index: 0;
+      background-color: #161616;
+      .logo-bg {
+        background: url("../imgs/Brainster/wallpaper.png") no-repeat left top/cover;
+        @extend %h-100;
+        &:before {
+          content: "";
+          @extend %position-abs;
+          background: linear-gradient(90deg, transparent 20%, rgb(199, 162, 0) 30%, transparent 70%, transparent 40%);
+          background-size: 300%;
+          z-index: -1;
+          @extend %w-100;
+          @extend %h-100;
+          @extend %default-transition;
+          animation: glowing 15s linear forwards infinite;
+        }
+        @include mix.tablet {
+          background: url("../imgs/Brainster/wallpaper_tablet.png") no-repeat center center/cover;
+        }
+      }
+    }
+    .banner-content {
+      @extend %d-flex;
+      @extend %h-100;
+      z-index: 15;
+      .banner-inner {
+        flex: 1 1 40%;
+        z-index: 20;
+        @extend %d-flex;
+        @extend %flex-direction-column;
+        @extend %justify-center;
+        @extend %text-center;
+        h1 {
+          color: var.$text-color-primary;
+          text-shadow: -4px 4px 12px rgb(155, 7, 168);
+          font-size: var.$font-size-xl * 3;
+          animation: blurry 15s linear forwards infinite;
+          @include mix.laptop-l {
+            font-size: var.$font-size-xl * 2.5;
+            margin-left: 60px;
+          }
+          @include mix.laptop-m {
+            font-size: var.$font-size-xl * 2;
+          }
+          @include mix.tablet {
+            font-size: var.$font-size-xl * 2.5;
+            margin-left: 0;
+          }
+          @include mix.mobile-l {
+            font-size: var.$font-size-xl * 1.7;
+          }
+        }
+      }
+      .banner-slide-imgs {
+        clip-path: polygon(15% 0, 100% 0%, 100% 100%, 0% 100%);
+        overflow: hidden;
+        flex: 1 1 60%;
+        z-index: 21;
+        @extend %position-rel;
+        @include mix.tablet {
+          display: none;
+        }
+        .img-slide {
+          @extend %position-abs;
+          @extend %abs-full;
+          opacity: 1;
+          transform: translateX(0);
+          transition: all 0.9s ease 0.3s;
+          &.change-img {
+            transition: all 0.9s ease;
+            opacity: 0;
+            transform: translateX(500px);
+          }
+          img {
+            clip-path: polygon(15% 0, 100% 0%, 100% 100%, 0% 100%);
+            @extend %w-100;
+            @extend %h-100;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .side-slide-items {
+      @extend %position-abs;
+      @extend %w-50;
+      top: 0;
+      bottom: 0;
+      left: -50%;
+      @extend %d-flex;
+      flex-wrap: nowrap;
+      z-index: 333;
+      padding-left: 5px;
+
+      & .slide-item.active-slide {
+        left: 100%;
+        background-color: #f3f3f5;
+        opacity: 1;
+        z-index: -333;
+        & .slide-icon {
+          right: -85px;
+        }
+      }
+      .slide-item {
+        @extend %position-abs;
+        @extend %w-100;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        transition: opacity 1s ease, left 1s ease;
+        opacity: 0.55;
+        @include mix.laptop-m {
+          display: none;
+        }
+        &:hover {
+          opacity: 1;
+        }
+
+        &#slide-marketing {
+          .slide-icon {
+            top: 15%;
+            @include mix.laptop-l {
+              top: 9%;
+            }
+          }
+        }
+        &#slide-programing {
+          .slide-icon {
+            top: 35%;
+            @include mix.laptop-l {
+              top: 32%;
+            }
+          }
+        }
+        &#slide-design {
+          .slide-icon {
+            top: 55%;
+            @include mix.laptop-l {
+              top: 55%;
+            }
+          }
+        }
+        &#slide-dataScience {
+          .slide-icon {
+            top: 75%;
+            @include mix.laptop-l {
+              top: 78%;
+            }
+          }
+        }
+        .slide-content {
+          @extend %d-flex;
+          @extend %align-center;
+          height: 100%;
+          padding: 0 0 0 var.$gutter-base;
+          background-color: #f3f3f5;
+        }
+        .slide-icon {
+          position: absolute;
+          width: 120px;
+          height: 50px;
+          border: none;
+          right: -55px;
+          padding: 0 0 10px 0;
+          transform: rotate(-90deg);
+          font-size: 15px;
+          font-weight: bold;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          z-index: 999;
+          cursor: pointer;
+          transition: all 0.5s ease 1s;
+          &:hover {
+            right: -85px;
+            @extend %default-transition;
+          }
+
+          p {
+            text-align: center;
+            margin: 0;
+            width: 150px;
+            height: 30px;
+            transform: rotate(270deg);
+            color: black;
+            font-size: 20px;
+            position: absolute;
+            top: 60px;
+            left: -45px;
+          }
+        }
+      }
+      img {
+        @extend %h-100;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+  }
+}

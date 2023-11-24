@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="wallpaper"></div>
+    <div class="main-header">
+      <div class="wrapper">
+        <div class="inner">
+          <div class="header">
+            <h1>Memory Game</h1>
+          </div>
+          <div class="game-options">
+            <button class="btn new-game">
+              <p>New Game</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="player">
+        <div class="game-statistics">
+          <h2>Game Statistics</h2>
+        </div>
+        <div class="player-info">
+          <div class="moves">
+            <p>Total Moves</p>
+            <span class="total-moves">0</span>
+          </div>
+          <hr />
+          <div class="pairs">
+            <p>Pairs Remaining</p>
+            <span class="pairs-remaining">0</span>
+          </div>
+          <hr />
+          <div class="games">
+            <div>
+              <p>Games Played</p>
+              <span class="games-played">0</span>
+            </div>
+            <div>
+              <p>Games WIN</p>
+              <span class="games-win">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="game-cards-container">
+        <div class="intro show">
+          <div class="match-status">
+            <p><strong>Memory Game</strong></p>
+            <p>How to play:</p>
+            <span>- Choose 2 different cards to find 2 identical cards</span>
+            <span>- If game is on focus and nothing is clicked within 15 seconds, you lose the game!</span>
+            <button class="btn new-game">
+              <span>New Game</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="game-cards">
+          <!-- DYNAMIC CODE GOES HERE-->
+        </div>
+        <div class="match matching-message hidden">
+          <div class="match-status">
+            <p>It's a Match!</p>
+          </div>
+        </div>
+        <div class="match game-over hidden">
+          <div class="match-status">
+            <p>You WIN!</p>
+            <span>Play Again?</span>
+          </div>
+        </div>
+        <div class="match you-lose hidden">
+          <div class="match-status">
+            <p>You LOSE!!</p>
+            <i class="fa-solid fa-face-frown"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="on-hold"></div>
+    <footer>
+      <p>&copy; Copyright - <strong> Nachevski Vladimir &reg;</strong> 2022</p>
+      <p>** Do not copy, change or distribute the game! **</p>
+    </footer>
+    <script src="./script/script.js"></script>
+  </body>
+</html>

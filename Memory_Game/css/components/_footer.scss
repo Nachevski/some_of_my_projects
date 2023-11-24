@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+footer {
+  text-align: center;
+  position: absolute;
+  bottom: calc(var.$gutter-base/3);
+  left: 0;
+  right: 0;
+  @include mix.mobile-l-styles {
+    position: static;
+  }
+  p {
+    color: transparentize(var.$text-color-primary, 0.6);
+    & + p {
+      font-size: 15px;
+    }
+  }
+}
