@@ -1,0 +1,23 @@
+.progres-container {
+  border: 1px solid rgb(90, 90, 90);
+  border-radius: 7px;
+  background-color: rgb(255, 239, 239);
+}
+.progressBar {
+  height: 22px;
+  border-radius: 6px;
+  background-image: linear-gradient(90deg, rgb(100, 148, 237), rgb(17, 255, 100));
+}
+.progressBar p,
+td,
+li {
+  font-weight: 500;
+}
+
+table {
+  counter-reset: tableCount;
+}
+.counterCell:before {
+  content: counter(tableCount);
+  counter-increment: tableCount;
+}
